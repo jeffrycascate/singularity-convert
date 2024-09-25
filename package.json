@@ -20,6 +20,10 @@
       }
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeffrycascate/singularity-convert.git"
+  },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
