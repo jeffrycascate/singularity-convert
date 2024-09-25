@@ -15,7 +15,7 @@
 2. O bien, clona este repositorio y ejecuta la extensión localmente.
 
 ```bash
-git clone https://github.com/tuusuario/singularity-convert.git
+git clone https://github.com/jeffrycascate/singularity-convert.git
 cd singularity-convert
 npm install
 code .
