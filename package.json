@@ -2,11 +2,19 @@
   "name": "singularity-convert",
   "displayName": "Singularity Convert",
   "description": "Extensión de ejemplo para mostrar un panel con un textbox y un botón.",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "publisher": "jeffrycascante",
   "engines": {
     "vscode": "^1.60.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeffrycascate/singularity-convert.git"
+  },
   "main": "extension.js",
+  "activationEvents": [
+    "onView:myView"
+  ],
   "contributes": {
     "viewsContainers": {
       "activitybar": [
@@ -27,7 +35,7 @@
       ]       
     }
   },
-  "dependencies": {
+  "devDependencies": {
     "vscode": "^1.60.0"
-  }
+  } 
 }
