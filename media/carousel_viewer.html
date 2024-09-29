@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes con Zoom</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        .carousel-item img {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .zoom-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .zoom-slider {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- IMAGES_PLACEHOLDER -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Control deslizante para hacer zoom -->
+    <div class="zoom-container">
+        <label for="zoomSlider">Zoom: </label>
+        <input id="zoomSlider" type="range" min="1" max="3" step="0.1" value="1" class="zoom-slider">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Obtener todas las imágenes del carrusel
+        const images = document.querySelectorAll('.carousel-item img');
+        
+        // Obtener el control deslizante
+        const zoomSlider = document.getElementById('zoomSlider');
+
+        // Agregar evento para controlar el zoom
+        zoomSlider.addEventListener('input', function() {
+            const zoomLevel = this.value;
+            images.forEach(img => {
+                img.style.transform = `scale(${zoomLevel})`; // Aplicar la escala a las imágenes
+            });
+        });
+    </script>
+</body>
+</html>

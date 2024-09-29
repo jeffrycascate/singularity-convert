@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acordeón de pantalla completa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* El acordeón estará en la parte superior */
+        }
+
+        .panel {
+            width: 100vw; /* Ocupa el 100% del ancho de la ventana */
+            height: 100vh; /* Ocupa el 100% del alto de la ventana */
+            max-width: 1200px;
+        }
+
+        .accordion-header {
+            background-color: #0078d4;
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            border-bottom: 2px solid #005a9e;
+        }
+
+        .accordion-header:hover {
+            background-color: #005a9e;
+        }
+
+        .accordion-content {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.5s ease;
+            background-color: white;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .accordion-content.expanded {
+            height: calc(100vh - 70px); /* Calcula el alto disponible menos el encabezado */
+            padding: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .input-group input[type="text"] {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .input-group button {
+            background-color: #0078d4;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .input-group button:hover {
+            background-color: #005a9e;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="panel">
+        <!-- Accordion header -->
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Convertir
+        </div>
+        <div class="accordion-content">
+            <!-- Input for file selection and button -->
+            <div class="input-group">
+                <input type="text" placeholder="Doble clic para seleccionar un archivo o in">
+                <button>
+                    <i class="settings-icon">⚙️</i>
+                </button>
+            </div>
+
+            <!-- Dropdown for mode selection -->
+            <div class="form-group">
+                <label for="mode">Modo:</label>
+                <select id="mode">
+                    <option value="viewer">Viewer</option>
+                    <option value="editor">Editor</option>
+                </select>
+            </div>
+
+            <!-- Displaying number of items -->
+            <div class="form-group">
+                <label for="items">Items: 0</label>
+            </div>
+
+            <!-- Dropdown for additional properties -->
+            <div class="form-group">
+                <label for="properties">No hay propiedades disponibles</label>
+                <select id="properties">
+                    <option value="none">No hay propiedades disponibles</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(element) {
+            // Selecciona el siguiente elemento hermano, que es el contenido del acordeón
+            var content = element.nextElementSibling;
+            // Alterna la clase expanded para abrir o cerrar el contenido
+            content.classList.toggle('expanded');
+        }
+    </script>
+
+</body>
+</html>

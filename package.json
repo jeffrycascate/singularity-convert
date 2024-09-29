@@ -1,40 +1,33 @@
 {
   "name": "singularity-convert",
-  "displayName": "singularity-convert",
-  "description": "",
-  "version": "0.0.1",
-  "publisher": "jeffrycascante",
+  "displayName": "Singularity Convert",
+  "description": "Extensión de ejemplo para mostrar un panel con un textbox y un botón.",
+  "version": "1.0.1",
   "engines": {
-    "vscode": "^1.93.0"
+    "vscode": "^1.60.0"
   },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [],
-  "main": "./extension.js",
+  "main": "extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "singularity-convert.convert",
-        "title": "Convert binary to image"
-      }
-    ]
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "singularityEditor",
+          "title": "Singularity Editor",
+          "icon": "media/icono.svg"
+        }
+      ]
+    },
+    "views": {
+      "singularityEditor": [
+        {
+          "type": "webview",
+          "id": "myView",
+          "name": "Singularity View"
+        }
+      ]       
+    }
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jeffrycascate/singularity-convert.git"
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "vscode-test"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.93.0",
-    "@types/mocha": "^10.0.7",
-    "@types/node": "20.x",
-    "eslint": "^9.9.1",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+  "dependencies": {
+    "vscode": "^1.60.0"
   }
 }
